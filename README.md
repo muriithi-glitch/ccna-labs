@@ -32,3 +32,16 @@ This repository documents hands-on enterprise networking topologies, switch/rout
 - **Privileged EXEC Password (Secret):** Configured (`cisco123`)
 - **Console Line Password:** Configured (`console123` with login enforcement)
 - **Persistence:** Saved running configuration to NVRAM (`write memory`).
+
+---
+
+## Lab 2: Remote Management & SSH Setup
+
+### Configuration Overview
+- **Management SVI:** Configured `Vlan 1` with IP address `192.168.1.254/24`.
+- **Domain Name:** `enterprise.local` with 1024-bit RSA keys generated.
+- **Authentication:** Created local administrator account (`admin`) and enforced secure VTY line access (`transport input ssh`, `login local`).
+
+### Verification
+- Tested end-to-end ICMP reachability to `192.168.1.254` from `PC-0` (Successful).
+- Established a secure remote CLI session using `ssh -l admin 192.168.1.254`.

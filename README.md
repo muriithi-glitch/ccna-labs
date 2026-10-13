@@ -22,3 +22,13 @@ This repository documents hands-on enterprise networking topologies, switch/rout
 ### Verification
 - Tested end-to-end ICMP connectivity using `ping 192.168.1.11` from `PC0`.
 - **Result:** 0% packet loss (4/4 received).
+
+---
+
+## Lab 1-B: Cisco Switch CLI Security Hardening
+
+### Configurations Applied
+- **Hostname:** `SW-CORE-01`
+- **Privileged EXEC Password (Secret):** Configured (`cisco123`)
+- **Console Line Password:** Configured (`console123` with login enforcement)
+- **Persistence:** Saved running configuration to NVRAM (`write memory`).

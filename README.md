@@ -45,3 +45,15 @@ This repository documents hands-on enterprise networking topologies, switch/rout
 ### Verification
 - Tested end-to-end ICMP reachability to `192.168.1.254` from `PC-0` (Successful).
 - Established a secure remote CLI session using `ssh -l admin 192.168.1.254`.
+
+## Lab 3-A: Inter-VLAN Routing via Multilayer Switch
+
+### Topology Overview
+* **Devices:** PC0, PC1, 1 Cisco Catalyst 3560-24PS Multilayer Switch[cite: 10]
+* **VLANs:** VLAN 10 (DATA - `192.168.10.0/24`), VLAN 20 (VOICE - `192.168.20.0/24`)
+* **Switch Virtual Interfaces (SVIs):** `Vlan 10` (`192.168.10.1`), `Vlan 20` (`192.168.20.1`) with global `ip routing` enabled.
+* **Access Ports:** `Fa0/1` assigned to VLAN 10; `Fa0/2` assigned to VLAN 20.
+
+### Verification
+* **Routing Table:** Verified directly connected SVI routes (`C`) using `show ip route`.
+* **Inter-VLAN Ping:** Tested end-to-end ICMP reachability from PC0 (`192.168.10.10`) to PC1 (`192.168.20.10`) with successful replies (`TTL=127`).

@@ -57,3 +57,17 @@ This repository documents hands-on enterprise networking topologies, switch/rout
 ### Verification
 * **Routing Table:** Verified directly connected SVI routes (`C`) using `show ip route`.
 * **Inter-VLAN Ping:** Tested end-to-end ICMP reachability from PC0 (`192.168.10.10`) to PC1 (`192.168.20.10`) with successful replies (`TTL=127`).
+
+## Lab 3-B: Router-on-a-Stick Inter-VLAN Routing
+
+### Topology Overview
+* **Devices:** PC0, PC1, 1 Cisco Catalyst Switch, 1 Cisco 4321 Router
+* **VLANs:** VLAN 10 (DATA - `192.168.10.0/24`), VLAN 20 (VOICE - `192.168.20.0/24`)
+* **Trunk Link:** Switch port `Gig0/1` configured with `switchport trunk encapsulation dot1q` and `switchport mode trunk` connected to router interface `Gig0/0/0`.
+* **Router Subinterfaces:** 
+  * `Gig0/0/0.10`: Encapsulation 802.1Q VLAN 10, IP `192.168.10.1/24`
+  * `Gig0/0/0.20`: Encapsulation 802.1Q VLAN 20, IP `192.168.20.1/24`
+
+### Verification
+* **Routing Table:** Confirmed directly connected subnets on the router via `show ip route`.
+* **Inter-VLAN Ping:** Verified end-to-end communication from PC0 (`192.168.10.10`) to PC1 (`192.168.20.10`) with successful ICMP replies.
